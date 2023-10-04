@@ -1,12 +1,44 @@
 <section>
-    <form>
-        <mat-form-field>
-            <input type="email" matInput placeholder="Your Email">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Name">
-        </mat-form-field>
-    </form>
+  <form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field class="imput">
+      <input
+        type="email"
+        matInput
+        placeholder="Your Email*"
+        ngModel
+        name="email"
+        email
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="imput">
+      <input
+        type="password"
+        matInput
+        placeholder="Password*"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #pwImput="ngModel"
+      />
+      <mat-hint
+        >Should be at least 6 characters long.
+        {{ pwImput.value?.length }}/6</mat-hint
+      >
+    </mat-form-field>
+
+    <p-calendar
+      [(ngModel)]="date"
+      [showIcon]="true"
+      placeholder="Your Birthday"
+      matInput
+      dateFormat="dd/mm/yy"
+      ngModel
+      name="date"
+    ></p-calendar>
+
+    <p-button type="submit" label="Invia"></p-button>
+  </form>
 </section>

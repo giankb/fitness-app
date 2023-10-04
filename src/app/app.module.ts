@@ -11,6 +11,9 @@ import { CurrentTrainingComponent } from './training/current-training/current-tr
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { PastTrainingsComponent } from './training/past-trainings/past-trainings.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -21,15 +24,18 @@ import { WelcomeComponent } from './welcome/welcome.component';
     CurrentTrainingComponent,
     NewTrainingComponent,
     PastTrainingsComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
+    ButtonModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    CalendarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
