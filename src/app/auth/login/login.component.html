@@ -1,1 +1,21 @@
-<p>login works!</p>
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+    
+<div class="card flex justify-content-center">
+    <input placeholder="E-Mail" type="email" pInputText formControlName="email" required/>
+</div>
+<div class="card flex justify-content-center">
+    <input placeholder="Password" type="password" pInputText formControlName="password" required/>
+</div>
+
+<p-button type="submit" label="submit" [disabled]="loginForm.invalid"></p-button>
+
+
+<re-captcha
+  [siteKey]="yourSiteKey"
+  (resolved)="handleCaptchaResolved($event)"
+  size="normal"
+  theme="light">
+</re-captcha>
+
+</form>

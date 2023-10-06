@@ -30,15 +30,29 @@
     </mat-form-field>
 
     <p-calendar
-      [(ngModel)]="date"
-      [showIcon]="true"
-      placeholder="Your Birthday"
-      matInput
-      dateFormat="dd/mm/yy"
-      ngModel
-      name="date"
-    ></p-calendar>
+    [(ngModel)]="date"
+    [showIcon]="true"
+    placeholder="Your Birthday"
+    matInput
+    dateFormat="dd/mm/yy"
+    name="date"
+    [maxDate]="maxDate"
+    [required]="true"
+  ></p-calendar>
 
-    <p-button type="submit" label="Invia"></p-button>
+
+  <div class="card flex justify-content-center">
+    <label for="binary" style="margin-right: 10px;">Agree to our terms of conditions</label>
+    <p-checkbox [(ngModel)]="checked" [binary]="true" name="terms" inputId="binary" ngModel [required]="true"></p-checkbox>
+    
+</div>
+
+
+
+  
+  
+  
+
+    <p-button type="submit" label="Invia" [disabled]="f.invalid ?? true"></p-button>
   </form>
 </section>

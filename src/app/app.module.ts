@@ -14,6 +14,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { StyleClassModule } from 'primeng/styleclass';
+import { ReactiveFormsModule} from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -34,6 +43,27 @@ import { CalendarModule } from 'primeng/calendar';
     AppRoutingModule,
     MaterialModule,
     CalendarModule,
+    CheckboxModule,
+    MatCheckboxModule,
+    InputTextModule,
+    StyleClassModule,
+    ReactiveFormsModule,
+    RecaptchaModule,
+    SidebarModule,
+    MenubarModule,
+    MenuModule
+  ],
+  exports: [
+    CheckboxModule,
+    MatCheckboxModule,
+    InputTextModule,
+    StyleClassModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    RecaptchaModule,
+    SidebarModule,
+    MenubarModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

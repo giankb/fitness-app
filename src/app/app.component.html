@@ -1,2 +1,22 @@
+
+<!--<p-button label="new Button" styleClass="p-button-success"></p-button>-->
+<div class="navbar"  fxHide.xs>
+    <p-menubar [model]="items"></p-menubar>
+</div>
+<div class="sidebar">
+<p-sidebar [(visible)]="sidebarVisible">
+    <h3>Menu</h3>
+    <ul class="sidenav_list">
+        <li><a class="nav_link" routerLink="">Home</a></li>
+        <li><a class="nav_link" routerLink="/login">Login</a></li>
+        <li><a class="nav_link" routerLink="/current-training">Trainings</a></li>
+        <li><a class="nav_link" routerLink="/past-trainings">Past Trainings</a></li>
+        <li><a class="nav_link" routerLink="/new-training">New Trainings</a></li>
+    </ul>
+</p-sidebar>
+<div class="xs_nav">
+<p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button>
+</div>
+</div>
+
 <router-outlet></router-outlet>
-<p-button label="new Button" styleClass="p-button-success"></p-button>
