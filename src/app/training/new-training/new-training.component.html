@@ -1,1 +1,15 @@
-<p>new-training works!</p>
+
+<div class="card flex align-items-center justify-content-center">
+    <p-card header="Avaiable Trainings"  class="header">
+        
+       
+<div class="card flex justify-content-center">
+    <p-dropdown [options]="trainings" [(ngModel)]="selectedTraining" optionLabel="name"></p-dropdown>
+</div>
+
+
+        <ng-template pTemplate="footer">
+            <p-button label="Save"></p-button>
+        </ng-template>
+    </p-card>
+</div>

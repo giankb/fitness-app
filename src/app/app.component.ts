@@ -8,17 +8,16 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   title = 'fitness-app';
-  sidebarVisible: boolean = false;
+  
 
   items: MenuItem[] | undefined;
 
   ngOnInit() {
     this.items = [
           {label: 'Home', routerLink:['']},
-          {label: 'Trainings', routerLink: ['/new-training']},
-          {label: 'Past trainings', routerLink: ['/past-trainings']}
-      
-  ];
+          {label: 'Trainings', routerLink: ['/app-training']},
+          {label: 'Logout', routerLink: ['']}
+          ];
   }
   constructor(){
 

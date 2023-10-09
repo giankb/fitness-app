@@ -1,0 +1,18 @@
+.welcome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: fit-content;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+
+@media (max-width: 600px) {
+   .welcome{
+    flex-direction: column;
+   }
+    
+}

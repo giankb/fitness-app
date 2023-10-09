@@ -1,0 +1,14 @@
+<div class="sidebar">
+    <p-sidebar [(visible)]="sidebarVisible">
+        <h3>Menu</h3>
+        <ul class="sidenav_list">
+            <li><a class="nav_link" (click)="sidebarVisible = false" routerLink="">Home</a></li>
+            <li><a class="nav_link" (click)="sidebarVisible = false" routerLink="/login">Login</a></li>
+            <li><a class="nav_link" (click)="sidebarVisible = false" routerLink="/app-training">Trainings</a></li>
+            <li><a class="nav_link" (click)="sidebarVisible = false" routerLink="">Logout</a></li>
+        </ul>
+    </p-sidebar>
+    <div class="xs_nav">
+    <p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button>
+    </div>
+    </div>

@@ -23,6 +23,17 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { TabViewModule } from 'primeng/tabview';
+import { CardModule } from 'primeng/card';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +45,8 @@ import { MenuModule } from 'primeng/menu';
     NewTrainingComponent,
     PastTrainingsComponent,
     WelcomeComponent,
+    HeaderComponent,
+    SidenavListComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -51,7 +64,14 @@ import { MenuModule } from 'primeng/menu';
     RecaptchaModule,
     SidebarModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    TabViewModule,
+    CardModule,
+    MultiSelectModule,
+    DropdownModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
+    ToastModule
   ],
   exports: [
     CheckboxModule,
@@ -63,7 +83,14 @@ import { MenuModule } from 'primeng/menu';
     RecaptchaModule,
     SidebarModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    TabViewModule,
+    CardModule,
+    MultiSelectModule,
+    DropdownModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],
