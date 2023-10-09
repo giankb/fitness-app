@@ -9,6 +9,8 @@ import { MessageService } from 'primeng/api';
 export class CurrentTrainingComponent {
   value: number = 0;
   timer: number | undefined;
+  isPaused: boolean = false;
+  buttonText: string = "Pause";
 
     constructor() {
       
@@ -16,20 +18,45 @@ export class CurrentTrainingComponent {
   
 
     ngOnInit() {
+      this.startTimer();
+    }
+  
+    startTimer() {
       this.timer = setInterval(() => {
-        this.value = this.value + 2;
-        if (this.value == 100) {
-            this.value = 100;
-            clearInterval(this.timer);
+        if (!this.isPaused) { // Verifica se la pausa è attiva o meno
+          this.value = this.value + 2;
+          if (this.value >= 100) { // Cambiato da '==' a '>=' per evitare potenziali problemi di loop infiniti
+            this.value = 0; // Resettiamo il valore a 0
+          }
         }
-    }, 1000);
+      }, 1000);
+    }
+  
+    stopTraining() {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = undefined;
+      }
+    }
+  
+    resetTraining() {
+      this.stopTraining(); // Interrompe l'intervallo attuale
+      this.value = 0; // Reimposta il valore a 0
+      this.startTimer(); // Avvia un nuovo intervallo
+      if(this.isPaused){
+        this.isPaused = !this.isPaused;
+        this.buttonText= "Pause";
+      }
     }
 
-
-
-    stopTraining(){
-      clearInterval(this.timer);
+    togglePaused(){
+      if(this.isPaused){
+      this.isPaused = !this.isPaused;
+      this.buttonText= "Pause";
+    } else {
+      this.isPaused = !this.isPaused;
+      this.buttonText= "Continue";
     }
-
+    }
 
 }
