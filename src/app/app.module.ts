@@ -32,7 +32,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
-
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { ToastModule } from 'primeng/toast';
     DropdownModule,
     ProgressSpinnerModule,
     ProgressBarModule,
-    ToastModule
+    ToastModule,
+    ConfirmPopupModule
   ],
   exports: [
     CheckboxModule,
@@ -90,9 +92,10 @@ import { ToastModule } from 'primeng/toast';
     DropdownModule,
     ProgressSpinnerModule,
     ProgressBarModule,
-    ToastModule
+    ToastModule,
+    ConfirmPopupModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

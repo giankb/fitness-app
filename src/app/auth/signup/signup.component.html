@@ -49,10 +49,7 @@
 
 
 
-  
-  
-  
 
-    <p-button type="submit" label="Invia" [disabled]="f.invalid ?? true"></p-button>
+    <p-button type="submit" label="Invia" [disabled]="!f.valid || !date || !checked"></p-button>
   </form>
 </section>

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-current-training',
@@ -11,6 +10,9 @@ export class CurrentTrainingComponent {
   timer: number | undefined;
   isPaused: boolean = false;
   buttonText: string = "Pause";
+  popupStyle = {display: 'none'};
+  overlay = {display: 'none'};
+  icona: string= "pi pi-pause";
 
     constructor() {
       
@@ -23,39 +25,51 @@ export class CurrentTrainingComponent {
   
     startTimer() {
       this.timer = setInterval(() => {
-        if (!this.isPaused) { // Verifica se la pausa è attiva o meno
+        if (!this.isPaused) {
           this.value = this.value + 2;
-          if (this.value >= 100) { // Cambiato da '==' a '>=' per evitare potenziali problemi di loop infiniti
-            this.value = 0; // Resettiamo il valore a 0
+          if (this.value >= 100) {
+            clearInterval(this.timer);
           }
         }
       }, 1000);
     }
   
     stopTraining() {
-      if (this.timer) {
-        clearInterval(this.timer);
-        this.timer = undefined;
+      if(!this.isPaused){
+        this.isPaused = !this.isPaused;
       }
+      
+      this.popupStyle = {display: 'block'};
+      this.overlay = {display: 'block'};
+      this.icona= "pi pi-play";
+
+      //if (this.timer) {
+        //clearInterval(this.timer);
+        //this.timer = undefined;
+      //}
     }
   
     resetTraining() {
-      this.stopTraining(); // Interrompe l'intervallo attuale
-      this.value = 0; // Reimposta il valore a 0
-      this.startTimer(); // Avvia un nuovo intervallo
+    //  this.stopTraining();
+      clearInterval(this.timer);
+      this.value = 0; 
+      this.startTimer();
       if(this.isPaused){
         this.isPaused = !this.isPaused;
-        this.buttonText= "Pause";
+        this.icona= "pi pi-pause";
       }
+    //  this.popupStyle = {display: 'none'};
     }
 
     togglePaused(){
       if(this.isPaused){
       this.isPaused = !this.isPaused;
-      this.buttonText= "Pause";
+      this.icona= "pi pi-pause";
+      this.popupStyle = {display: 'none'};
+      this.overlay = {display: 'none'};
     } else {
       this.isPaused = !this.isPaused;
-      this.buttonText= "Continue";
+      this.icona= "pi pi-play";
     }
     }
 

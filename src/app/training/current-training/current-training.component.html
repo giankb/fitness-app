@@ -1,18 +1,37 @@
 
 
-<div> 
+<div class="current_container"> 
     <div class="progress_bar">
         <p-progressBar [value]="value"></p-progressBar>
     </div>
     <div class="motivational">
         <p>
-            Progressing <br> You can do it!
+            Progressing... <br> You can do it!
         </p>
     </div>
 
+    <div class="buttons_container">
     <p-button (click)="stopTraining()"  label="Stop"></p-button>
     <p-button (click)="resetTraining()"  label="Restart"></p-button>
-    <p-button (click)="togglePaused()" >{{buttonText}}</p-button>
+    <p-button (click)="togglePaused()"  [icon]="icona"></p-button>
+    </div>
+
+    
+
+
+<div id="popUp" [ngStyle]="popupStyle" class="pop_up">
+    <div class="popup_container">
+        <p>Are you sure?</p>
+        <div class="popup_buttons">
+        <p-button (click)="stopTraining()" routerLink="/app-training" label="Yes"></p-button>
+        <p-button (click)="togglePaused()" label="No"></p-button>  
+    </div>  
+
+    </div>
+</div>
+<div [ngStyle]="overlay" class="overlay">
+
+</div>
 </div>
 
 
