@@ -1,15 +1,29 @@
 
 <div class="card flex align-items-center justify-content-center">
     <p-card header="Avaiable Trainings"  class="header">
+
+
+
         
-       
+<div class="card flex justify-content-center">
+    <form [formGroup]="allExercises" class="form" #f="ngForm" (ngSubmit)="onSubmit()">
+        <p-dropdown formControlName="exercise" [options]="trainings" optionLabel="name"></p-dropdown>
+        <p-button type="submit" label="Save"  [disabled]=""></p-button>
+    </form>
+</div>
+        
+
+
+   <!--   
+        <form class="form" [formGroup]="training" (ngSubmit)="onSubmit()" >
 <div class="card flex justify-content-center">
     <p-dropdown [options]="trainings" [(ngModel)]="selectedTraining" optionLabel="name"></p-dropdown>
 </div>
 
 
         <ng-template pTemplate="footer">
-            <a routerLink="/app-current-training"><p-button label="Save"></p-button></a>
+            <p-button type="submit" label="Save" (click)="startTraining()"></p-button>
         </ng-template>
+        </form>-->  
     </p-card>
 </div>

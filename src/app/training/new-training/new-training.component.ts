@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Exercise} from '../ex.module';
+import { TrainingService } from '../training.service';
+import {Subscription} from 'rxjs';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-interface Trainings {
-  name: string;
-  code: string;
-}
 
 @Component({
   selector: 'app-new-training',
@@ -12,17 +14,50 @@ interface Trainings {
 })
 export class NewTrainingComponent implements OnInit{
 
-  trainings: Trainings[] | undefined;
+  allExercises!: FormGroup;
+  trainings: Exercise[] = [];
+  ongoingTraining = false;
+  
 
-  selectedTraining: Trainings | undefined;
+  selectedTraining!: Exercise;
+  exSubscription!: Subscription;
+
+
+  constructor(private trainingService: TrainingService, private formBuilder: FormBuilder, private router: Router){
+    
+  }
 
   ngOnInit() {
-      this.trainings = [
-          { name: 'Shoulders', code: 'S' },
-          { name: 'Legs', code: 'L' },
-          { name: 'Breast', code: 'B' },
-          { name: 'Arms', code: 'A' }
-      ];
+      this.trainings = this.trainingService.getAvailableEx();
+      this.exSubscription = this.trainingService.exerciseChanged.subscribe(
+        ex => {
+          if(ex){
+          this.ongoingTraining = true;
+        } else {
+          this.ongoingTraining = false;
+        }
+        }
+      );
+      this.allExercises = this.formBuilder.group({
+        exercise: new FormControl()
+      });
   }
+
+
+
+  onSubmit(){
+    this.ongoingTraining = true;
+    const x =  this.allExercises!.get('exercise')!.value;
+    const y = x.id;
+    if(y){
+    this.trainingService.startEx(y);
+    console.log(x.id);
+    }else{
+    console.log(y);
+    }
+    this.router.navigate(['./app-current-training']);
+  }
+
+
 
 }

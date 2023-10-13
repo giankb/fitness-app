@@ -34,6 +34,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { AuthService } from './auth/auth.service';
+import {TrainingService} from './training/training.service';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -73,7 +75,8 @@ import { AuthService } from './auth/auth.service';
     ProgressSpinnerModule,
     ProgressBarModule,
     ToastModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    TableModule
   ],
   exports: [
     CheckboxModule,
@@ -93,9 +96,13 @@ import { AuthService } from './auth/auth.service';
     ProgressSpinnerModule,
     ProgressBarModule,
     ToastModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    TableModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    TrainingService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

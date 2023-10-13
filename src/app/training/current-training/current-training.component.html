@@ -1,6 +1,11 @@
 
 
-<div class="current_container"> 
+<div class="current_container">
+    
+    <div class="training_title">
+        <h1>{{name}}</h1>
+    </div>
+
     <div class="progress_bar">
         <p-progressBar [value]="value"></p-progressBar>
     </div>
@@ -22,8 +27,10 @@
 <div id="popUp" [ngStyle]="popupStyle" class="pop_up">
     <div class="popup_container">
         <p>Are you sure?</p>
+        <p> You have done {{progress}} %</p>
+        <p> You have {{secondsLeft}} seconds left</p>
         <div class="popup_buttons">
-        <p-button (click)="stopTraining()" routerLink="/app-training" label="Yes"></p-button>
+        <p-button (click)="blockTraining()" routerLink="/app-training" label="Yes"></p-button>
         <p-button (click)="togglePaused()" label="No"></p-button>  
     </div>  
 

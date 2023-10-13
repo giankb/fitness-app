@@ -7,6 +7,13 @@
     margin: 20px auto;
 }
 
+.training_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
 
 .motivational{
     display: flex;
@@ -20,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
     margin: 20px auto;
 }
 
@@ -30,9 +37,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(234, 234, 234);
-    width: fit-content;
     display: none;
-    padding-bottom: 2rem;
+    padding: 2rem 4rem;
+    padding-bottom: 4rem;
     z-index: 10000;
 }
 
@@ -43,9 +50,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
-    width: 10rem;
-    height: 10rem;
+    gap: 10px;
 }
 
 .popup_buttons{
